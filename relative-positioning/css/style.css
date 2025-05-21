@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+/** fr = fraction en enhet i CSS Grid och innebär att varje kolumn ska vara lika stor baserat på tillgänglig bredd i webbläsaren*/
+.grid-container {
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(
+    6,
+    1fr
+  ); /** repeat() antal kolumner och storlek */
+  grid-template-rows: repeat(4, 120px);
+  gap: 5px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  background-color: #93f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+}
+
+.header {
+  grid-column: auto / span 6;
+}
+
+.aside {
+  grid-column: auto / span 2;
+  grid-row: auto / span 3;
+}
+
+.main {
+  grid-column: auto / span 4;
+  grid-row: auto / span 3;
+}

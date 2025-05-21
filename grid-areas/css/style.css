@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+/** fr = fraction en enhet i CSS Grid och innebär att varje kolumn ska vara lika stor baserat på tillgänglig bredd i webbläsaren*/
+.grid-container {
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 100px auto;
+  grid-template-areas:
+    ". header header header header ."
+    "aside aside main main main main"
+    "footer footer footer footer footer footer";
+  /** punkt (.) används när man inte vill populera en viss kolumn */
+  gap: 5px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  background-color: #93f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header {
+  grid-area: header;
+}
+
+.aside {
+  grid-area: aside;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}

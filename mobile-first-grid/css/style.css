@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+/** fr = fraction en enhet i CSS Grid och innebär att varje kolumn ska vara lika stor baserat på tillgänglig bredd i webbläsaren*/
+.grid-container {
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "header"
+    "asideLeft"
+    "main"
+    "asideRight"
+    "footer";
+  margin: 0 auto;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header__menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.aside-left {
+  grid-area: asideLeft;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lavender;
+  min-height: 15rem;
+}
+
+.main-content {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  padding: 1rem;
+}
+
+.aside-right {
+  grid-area: asideRight;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lavender;
+  min-height: 15rem;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+}
+
+@media screen and (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "header header header header"
+      "asideLeft main main asideRight"
+      "footer footer footer footer";
+  }
+}
